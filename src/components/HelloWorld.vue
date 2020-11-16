@@ -1,22 +1,19 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <div class="main">
+      <h1>{{ msg }}</h1>
     <p> 
       {{ msg2 }}
       {{ message }}
   <input v-model="message">
-
-
     </p>
-
     <button
-                          type="button"
-                          class="btn btn-warning btn-sm"
-                         
-                          @click="editBook('hola')">
-                      Update
-                  </button>
-    
+      type="button"
+      class="btn btn-warning btn-sm"                  
+      @click="editBook('hola')">
+      Update
+    </button>
+    </div>
   </div>
 </template>
 
@@ -25,7 +22,7 @@ export default {
   name: 'HelloWorld',
   data: function() {
     return {
-      message: "gi", num2: ""
+      message: "Holis", num2: ""
     }
   },   
   props: {
@@ -58,6 +55,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.main{
+  margin: 0 auto;
+}
 h3 {
   margin: 40px 0 0;
 }
@@ -70,9 +70,9 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #0c0c0c;
 }
 .hello {
-color: #42b983;
+color: #000000;
 }
 </style>
