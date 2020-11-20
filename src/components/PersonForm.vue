@@ -90,7 +90,7 @@ export default {
     },
 
     create: function (payload) {
-      const path = "http://localhost:8081/v1/persons";
+      const path = "http://localhost:8085/v1/persons";
       axios
         .post(path, payload)
         .then(() => {
@@ -130,7 +130,7 @@ export default {
     },
 
     getById: function (id) {
-      const path = "http://localhost:8081/v1/persons/" + id;
+      const path = "http://localhost:8085/v1/persons/" + id;
       console.log(path);
       axios
         .get(path)
@@ -144,7 +144,7 @@ export default {
     },
 
     update: function (payload, id) {
-      const path = `http://localhost:8081/v1/persons/${id}`;
+      const path = `http://localhost:8085/v1/persons/${id}`;
       axios
         .put(path, payload)
         .then(() => {

@@ -6,13 +6,11 @@
         <hr />
         <br /><br />
         <alert :message="message" v-if="showMessage"></alert>
-        <button type="button" class="btn btn-success btn-sm" v-on:click="add()">
-          Add Person
-        </button>
         <br /><br />
-        <table class="table table-hover">
-          <thead>
+        <table class="table table-hover table-striped">
+          <thead class="thead-dark">
             <tr>
+              <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">Age</th>
               <th></th>
@@ -20,7 +18,8 @@
           </thead>
           <tbody>
             <tr v-for="(d, index) in list" :key="index">
-              <td>{{ d.Name }} - {{ d.ID }}</td>
+              <td>{{ d.ID }}</td>
+              <td>{{ d.Name }}</td>
               <td>{{ d.Age }}</td>
 
               <td>
@@ -43,6 +42,9 @@
               </td>
             </tr>
           </tbody>
+          <button type="button" class="btn btn-success btn-sm " v-on:click="add()">
+          Add Person
+        </button>
         </table>
       </div>
     </div>
@@ -73,7 +75,7 @@ export default {
       this.$router.push("/persons/form");
     },
     getList: function () {
-      const path = "http://localhost:8081/v1/persons";
+      const path = "http://localhost:8085/v1/persons";
       axios
         .get(path)
         .then((res) => {
@@ -87,12 +89,12 @@ export default {
       this.delete(d.ID);
     },
     delete: function (id) {
-      const path = `http://localhost:8081/v1/persons/${id}`;
+      const path = `http://localhost:8085/v1/persons/${id}`;
       axios
         .delete(path)
         .then(() => {
           this.getList();
-          this.message = "Book removed!";
+          this.message = "Eliminado!";
           this.showMessage = true;
         })
         .catch((error) => {

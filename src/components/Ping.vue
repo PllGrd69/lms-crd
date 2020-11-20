@@ -1,6 +1,23 @@
 <template>
-  <div>
-    <button type="button" class="btn btn-primary">{{ msg }}</button>
+  <div class="container">
+    <div class="row mt-3">
+    <div class="card col-md-4">
+    <div class="card-header">
+      Ping 1
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ msg }}</h5>
+    </div>
+  </div>
+    <div class="card col-md-4">
+    <div class="card-header">
+      Ping 2
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ msg }}</h5>
+    </div>
+    </div>
+  </div>
   </div>
 </template>
 <script>
@@ -15,7 +32,7 @@ export default {
   },   
   methods: {
     getMessage: function() {
-      const path = 'http://localhost:8081/v1/ping';
+      const path = 'http://localhost:8085/v2/ping';
       axios.get(path)
         .then((res) => {
           this.msg = res.data;
